@@ -59,7 +59,7 @@ void Robot::TeleopInit() {
  * This function is called periodically during operator control.
  */
 void Robot::TeleopPeriodic() {
-  m_container.m_drivetrain.drive(0.1, 0.1);
+  m_container.m_joystickdrive.Schedule();
 }
 
 /**

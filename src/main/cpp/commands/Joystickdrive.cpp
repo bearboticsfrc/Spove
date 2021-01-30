@@ -16,9 +16,9 @@ void Joystickdrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void Joystickdrive::Execute() {
-   double speed = m_joystick->GetY();
-   m_drivetrain->drive(speed,speed);
-   
+   double speed = -m_joystick->GetY();
+   double turn = m_joystick->GetTwist();
+   m_drivetrain->drive(speed + turn,speed - turn);
    }
 
 // Called once the command ends or is interrupted.

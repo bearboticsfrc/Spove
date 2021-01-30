@@ -3,12 +3,15 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "RobotContainer.h"
+#include "frc2/command/Command.h"
 
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
 
   // Configure the button bindings
   ConfigureButtonBindings();
+  m_drivetrain.SetDefaultCommand(m_joystickdrive);
+  m_drivetrain.Register();
 }
 
 void RobotContainer::ConfigureButtonBindings() {
