@@ -5,7 +5,7 @@
 #pragma once
 
 #include <frc2/command/Command.h>
-
+#include <frc/Joystick.h>
 #include "commands/ExampleCommand.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Drivetrain.h"
@@ -29,4 +29,6 @@ class RobotContainer {
 
   void ConfigureButtonBindings();
   Drivetrain m_drivetrain;
+  frc::Joystick m_joystick = frc::Joystick(0);
+  RobotContainer::JoystickDrive 
 };
