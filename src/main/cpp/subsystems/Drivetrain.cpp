@@ -6,10 +6,10 @@
 
 Drivetrain::Drivetrain() {
     frontLeft.SetInverted(false);
-    frontRight.SetInverted(true);
+    frontRight.SetInverted(false);
 
     backLeft.SetInverted(false);
-    backRight.SetInverted(true);
+    backRight.SetInverted(false);
 }
 
 // This method will be called once per scheduler run
