@@ -10,6 +10,8 @@
 #include "commands/Xboxdrive.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Drivetrain.h"
+#include "Arduino.h"
+#include "commands/BallTrack.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -23,14 +25,16 @@ class RobotContainer {
   RobotContainer();
 
   frc2::Command* GetAutonomousCommand();
-
+  Arduino m_arduino;
+  
  public:
   // The robot's subsystems and commands are defined here...
   ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
+  ExampleCommand m_autonomousCommand; 
 
   void ConfigureButtonBindings();
   Drivetrain m_drivetrain;
   frc::XboxController m_xboxcontroller = frc::XboxController(0);
   Xboxdrive m_xboxdrive = Xboxdrive(&m_xboxcontroller, &m_drivetrain);
+  BallTrack m_balltrack = BallTrack(&m_arduino, &m_drivetrain);
 };
