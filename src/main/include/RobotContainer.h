@@ -11,6 +11,7 @@
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/Drivetrain.h"
 #include "Arduino.h"
+#include "commands/BallTrack.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -29,10 +30,11 @@ class RobotContainer {
  public:
   // The robot's subsystems and commands are defined here...
   ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
+  ExampleCommand m_autonomousCommand; 
 
   void ConfigureButtonBindings();
   Drivetrain m_drivetrain;
   frc::Joystick m_joystick = frc::Joystick(0);
   Joystickdrive m_joystickdrive = Joystickdrive(&m_joystick, &m_drivetrain);
+  BallTrack m_balltrack = BallTrack(&m_arduino, &m_drivetrain);
 };
