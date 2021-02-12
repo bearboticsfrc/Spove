@@ -6,8 +6,8 @@
 
 using JoystickHand = frc::GenericHID::JoystickHand;
 
-Xboxdrive::Xboxdrive(frc::XboxController *xboxcontroller, Drivetrain *drivetrain)
-: m_xboxcontroller{xboxcontroller},m_drivetrain{drivetrain}  
+Xboxdrive::Xboxdrive(frc::XboxController *xboxcontroller0, frc::XboxController *xboxcontroller1, Drivetrain *drivetrain)
+: m_xboxcontroller0{xboxcontroller0}, m_xboxcontroller1{xboxcontroller1}, m_drivetrain{drivetrain}  
 {
   // Use addRequirements() here to declare subsystem dependencies.
   AddRequirements(m_drivetrain);
@@ -18,8 +18,8 @@ void Xboxdrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void Xboxdrive::Execute() {
-    double speed = -m_xboxcontroller->GetY(JoystickHand::kLeftHand);
-    double turn = m_xboxcontroller->GetX(JoystickHand::kLeftHand);
+    double speed = -m_xboxcontroller0->GetY(JoystickHand::kLeftHand);
+    double turn = m_xboxcontroller0->GetX(JoystickHand::kLeftHand);
     m_drivetrain->drive(speed + turn,speed - turn);
     }
 

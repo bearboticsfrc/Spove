@@ -34,7 +34,8 @@ class RobotContainer {
 
   void ConfigureButtonBindings();
   Drivetrain m_drivetrain;
-  frc::XboxController m_xboxcontroller = frc::XboxController(0);
-  Xboxdrive m_xboxdrive = Xboxdrive(&m_xboxcontroller, &m_drivetrain);
+  frc::XboxController m_xboxcontroller0 = frc::XboxController(0);
+  frc::XboxController m_xboxcontroller1 = frc::XboxController(1);
+  Xboxdrive m_xboxdrive = Xboxdrive(&m_xboxcontroller0, &m_xboxcontroller1, &m_drivetrain);
   BallTrack m_balltrack = BallTrack(&m_arduino, &m_drivetrain);
 };

@@ -19,7 +19,8 @@
 class Xboxdrive
     : public frc2::CommandHelper<frc2::CommandBase, Xboxdrive> {
  public:
-  Xboxdrive(frc::XboxController* xboxcontroller, Drivetrain* drivetrain);
+  Xboxdrive(frc::XboxController* xboxcontroller0, frc::XboxController* xboxcontroller1,  Drivetrain* drivetrain);
+  
 
   void Initialize() override;
 
@@ -29,6 +30,7 @@ class Xboxdrive
 
   bool IsFinished() override;
   
-frc::XboxController* m_xboxcontroller;
+frc::XboxController* m_xboxcontroller0;
+frc::XboxController* m_xboxcontroller1;
 Drivetrain* m_drivetrain;
 };
