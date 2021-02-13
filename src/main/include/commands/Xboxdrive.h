@@ -9,6 +9,7 @@
 #include <frc/XboxController.h>
 #include "subsystems/Drivetrain.h"
 
+
 /**
  * An example command.
  *
@@ -21,6 +22,8 @@ class Xboxdrive
  public:
   Xboxdrive(frc::XboxController* xboxcontroller0, frc::XboxController* xboxcontroller1,  Drivetrain* drivetrain);
   
+  double GetX() const;
+  double GetY() const;
 
   void Initialize() override;
 
