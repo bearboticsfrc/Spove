@@ -28,7 +28,7 @@ void BallTrack::Execute() {
       }
       double turn = (ballX - 150) / 250;
       double speed = 0.0;
-
+/*
       if (turn > 150.0 / 500.0)
       {
         turn = 150.0 / 500.0;
@@ -37,14 +37,14 @@ void BallTrack::Execute() {
       if (turn < -150.0 / 500.0)
       {
         turn = -150.0 / 500.0;
-      }
+      }*/
 
       if (abs(ballX - 150) < 30 && ballWidth > 20) {
         speed = 5 / ballWidth;
       }
 
       
-      m_drivetrain->drive(speed + turn, speed -turn);
+     // m_drivetrain->drive(speed + turn, speed -turn);
 
   } else {
     m_drivetrain->drive(0,0);
