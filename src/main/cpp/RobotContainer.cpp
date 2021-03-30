@@ -7,6 +7,10 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 RobotContainer::RobotContainer() : 
+m_aRed(&m_drivetrain),
+m_bRed(&m_drivetrain),
+m_aBlue(&m_drivetrain),
+m_bBlue(&m_drivetrain),
 m_autonomousCommand(&m_subsystem),
 m_arduino() {
   // Initialize all of your commands and subsystems here
@@ -18,11 +22,23 @@ m_arduino() {
   frc::SmartDashboard::PutData("Ball Track", &m_balltrack);
 }
 
+
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
-  // An example command will be run in autonomous
-  return &m_autonomousCommand;
+    switch (choosers.autonomousChoice()) {
+    case AutonomousChoice::ARed:
+      return &m_aRed;
+    case AutonomousChoice::BRed:
+      return &m_bRed;
+    case AutonomousChoice::ABlue:
+      return &m_aBlue;
+    case AutonomousChoice::BBlue:
+      return &m_bBlue;
+    default:
+      std::cerr << "UNHANDLED OPTION FOR AUTONOMOUS\n";
+      return nullptr;
+  }
 }

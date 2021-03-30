@@ -13,6 +13,7 @@
 #include "Arduino.h"
 #include "commands/BallTrack.h"
 
+
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should
@@ -25,17 +26,26 @@ class RobotContainer {
   RobotContainer();
 
   frc2::Command* GetAutonomousCommand();
+  Drivetrain m_drivetrain;
   Arduino m_arduino;
+  ARed m_aRed;
+  BRed m_bRed;
+  ABlue m_aBlue;
+  BBlue m_bBlue;
+
   
  public:
   // The robot's subsystems and commands are defined here...
   ExampleSubsystem m_subsystem;
   ExampleCommand m_autonomousCommand; 
 
+
   void ConfigureButtonBindings();
-  Drivetrain m_drivetrain;
+  
   frc::XboxController m_xboxcontroller0 = frc::XboxController(0);
   frc::XboxController m_xboxcontroller1 = frc::XboxController(1);
   Xboxdrive m_xboxdrive = Xboxdrive(&m_xboxcontroller0, &m_xboxcontroller1, &m_drivetrain);
-  BallTrack m_balltrack = BallTrack(&m_arduino, &m_drivetrain);
+  BallTrack m_balltrack = BallTrack(&m_arduino, &m_drivetrain, &m_aRed, &m_bRed, &m_aBlue, &m_bBlue);
+
+  Choosers choosers;
 };

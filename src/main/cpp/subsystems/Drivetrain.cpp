@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "subsystems/Drivetrain.h"
+#include <frc/geometry/Pose2d.h>
 
 Drivetrain::Drivetrain() {
     frontLeft.SetInverted(false);
@@ -22,4 +23,24 @@ void Drivetrain::drive(double leftSpeed, double rightSpeed) {
     backRight.Set(ControlMode::PercentOutput, rightSpeed);
 }
 
+void Drivetrain::SetPose(frc::Pose2d newPose) {
+    previousPose = pose = newPose;
+}
+
+/*void Drivetrain::SetSpeed(double speed) {
+    SetSpeeds(speed, speed);
+}*/
+
+/*void Drivetrain::SetSpeeds(units::meters_per_second_t lSpeed, units::meters_per_second_t rSpeed) {
+    auto l = lSpeed.to<double>() / METERS_PER_REV * 60.0;
+    auto r = rSpeed.to<double>() / METERS_PER_REV * 60.0;
+}*/
+
+frc::Pose2d Drivetrain::GetPose() {
+    return pose;
+}   
+
+frc::Pose2d Drivetrain::GetLastPose() {
+    return previousPose;
+}
 
